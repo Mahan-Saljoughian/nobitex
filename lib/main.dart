@@ -17,6 +17,7 @@ import 'package:lottie/lottie.dart';
 import 'package:crypto_app/core/animations.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   runApp(
     BlocProvider(
@@ -43,12 +44,14 @@ class CryptoApp extends StatelessWidget {
               create: (context) {
                 final authCubit = context.read<AuthCubit>();
                 return NobitexService(
-                  onUnauthorized: ({String? error}) => authCubit.logout(error: error),
+                  onUnauthorized: ({String? error}) =>
+                      authCubit.logout(error: error),
                 );
               },
             ),
             Provider<ProfileService>(
-              create: (context) => ProfileService(context.read<NobitexService>()),
+              create: (context) =>
+                  ProfileService(context.read<NobitexService>()),
             ),
             BlocProvider<ApiKeyCubit>(
               create: (context) => ApiKeyCubit(
@@ -72,11 +75,14 @@ class CryptoApp extends StatelessWidget {
               }),
             ),
             home: BlocConsumer<AuthCubit, AuthState>(
-              listenWhen: (prev, current) => prev.error != current.error && current.error != null,
+              listenWhen: (prev, current) =>
+                  prev.error != current.error && current.error != null,
               listener: (context, state) {
                 if (state.error != null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(state.error!), backgroundColor: Colors.red),
+                    SnackBar(
+                        content: Text(state.error!),
+                        backgroundColor: Colors.red),
                   );
                 }
               },
