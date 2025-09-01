@@ -8,7 +8,8 @@ class AnimatedTitle extends StatefulWidget {
   _AnimatedTitleState createState() => _AnimatedTitleState();
 }
 
-class _AnimatedTitleState extends State<AnimatedTitle> with TickerProviderStateMixin {
+class _AnimatedTitleState extends State<AnimatedTitle>
+    with TickerProviderStateMixin {
   late AnimationController _textController;
 
   late Animation<double> _textOpacityAnimation;
@@ -19,18 +20,23 @@ class _AnimatedTitleState extends State<AnimatedTitle> with TickerProviderStateM
   void initState() {
     super.initState();
 
-    _textController = AnimationController(duration: const Duration(milliseconds: 1200), vsync: this);
+    _textController = AnimationController(
+        duration: const Duration(milliseconds: 1200), vsync: this);
 
     // Text animations
     _textOpacityAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
-    ).animate(CurvedAnimation(parent: _textController, curve: const Interval(0.3, 1.0, curve: Curves.easeOut)));
+    ).animate(CurvedAnimation(
+        parent: _textController,
+        curve: const Interval(0.3, 1.0, curve: Curves.easeOut)));
 
     _textSlideAnimation = Tween<Offset>(
       begin: const Offset(0, 0.5),
       end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _textController, curve: const Interval(0.3, 1.0, curve: Curves.easeOut)));
+    ).animate(CurvedAnimation(
+        parent: _textController,
+        curve: const Interval(0.3, 1.0, curve: Curves.easeOut)));
 
     _startAnimations();
   }
@@ -59,12 +65,15 @@ class _AnimatedTitleState extends State<AnimatedTitle> with TickerProviderStateM
               children: [
                 // Main Title
                 ShaderMask(
-                  shaderCallback:
-                      (bounds) => const LinearGradient(
-                        colors: [Color(0xFFFFD700), Color(0xFFFFA500), Color(0xFFFFD700)],
-                      ).createShader(bounds),
+                  shaderCallback: (bounds) => const LinearGradient(
+                    colors: [
+                      Color(0xFFFFD700),
+                      Color(0xFFFFA500),
+                      Color(0xFFFFD700)
+                    ],
+                  ).createShader(bounds),
                   child: Text(
-                    'Crypto Kade',
+                    'Nobitex',
                     style: TextStyle(
                       fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
@@ -78,7 +87,7 @@ class _AnimatedTitleState extends State<AnimatedTitle> with TickerProviderStateM
 
                 // Subtitle
                 Text(
-                  'Your Gateway to Digital Assets',
+                  'Trade • Track • Secure',
                   style: TextStyle(
                     fontSize: 16.sp,
                     color: Colors.white.withOpacity(0.8),

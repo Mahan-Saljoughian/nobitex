@@ -49,7 +49,7 @@ class ApiKeyScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const GradientIconContainer(icon: Icons.currency_bitcoin),
+                              const GradientIconContainer(icon: Icons.account_balance_wallet),
                               SizedBox(height: 32.h),
                               Text(
                                 'Connect to Nobitex',

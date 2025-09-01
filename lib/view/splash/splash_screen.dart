@@ -13,7 +13,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -40,9 +41,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF1A1A2E), Color(0xFF16213E), Color(0xFF0F3460)],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xFF0D0D2B),
+              Color(0xFF1B1B3A),
+              Color(0xFF22223B),
+            ],
           ),
         ),
         child: SafeArea(

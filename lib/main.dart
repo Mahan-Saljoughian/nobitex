@@ -17,7 +17,6 @@ import 'package:lottie/lottie.dart';
 import 'package:crypto_app/core/animations.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
   runApp(
     BlocProvider(

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../services/auth_cubit.dart';
-import '../../widgets/custom_google_nav_bar.dart';
+import 'widgets/custom_curved_nav_bar.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
@@ -73,11 +73,13 @@ class MainScreen extends StatelessWidget {
                 ),
               ],
             ),
-            bottomNavigationBar: CustomGoogleNavBar(
+            bottomNavigationBar: CustomCurvedNavBar(
               selectedIndex: selectedIndex,
               onTabChange: (index) {
                 if (index == selectedIndex) {
-                  _navigatorKeys[index].currentState!.popUntil((route) => route.isFirst);
+                  _navigatorKeys[index]
+                      .currentState!
+                      .popUntil((route) => route.isFirst);
                 } else {
                   context.read<TabCubit>().changeTab(index);
                 }
